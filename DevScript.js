@@ -3,9 +3,9 @@ import { sleep } from 'k6';
 
 export const options = {
   stages: [
-    { duration: '10s', target: 2000 },
-    { duration: '1m', target: 2000 },
-    { duration: '10s', target: 0 },
+    { duration: '30s', target: 2000 },
+    { duration: '10m', target: 2000 },
+    { duration: '30s', target: 0 },
   ],
   thresholds: {
     http_req_failed: ['rate<0.02'], // http errors should be less than 2%
@@ -14,6 +14,6 @@ export const options = {
 }
 
 export default function () {
-  http.get('http://192.168.1.65:1234');
+  http.get('http://ryozotac:1234');
   sleep(1);
 }
